@@ -13,6 +13,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\AutomaticAcceptanceTest.Application\AutomaticAcceptanceTest.Application.csproj" />
     <ProjectReference Include="..\..\src\AutomaticAcceptanceTest.EntityFrameworkCore\AutomaticAcceptanceTest.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\src\AutomaticAcceptanceTest.Migrator\AutomaticAcceptanceTest.Migrator.csproj" />
+    <ProjectReference Include="..\..\src\AutomaticAcceptanceTest.Web.Core\AutomaticAcceptanceTest.Web.Core.csproj" />
+    <ProjectReference Include="..\..\src\AutomaticAcceptanceTest.Web.Host\AutomaticAcceptanceTest.Web.Host.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
