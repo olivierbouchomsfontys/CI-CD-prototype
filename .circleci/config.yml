@@ -9,6 +9,6 @@
     
      steps:
        - checkout
-       - run: dotnet restore
+       - run: dotnet restore ./aspnet-core/AutomaticAcceptanceTest.sln
        - run: dotnet build ./aspnet-core/AutomaticAcceptanceTest.sln
        - run: dotnet test ./aspnet-core/AutomaticAcceptanceTest.sln
