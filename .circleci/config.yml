@@ -2,6 +2,7 @@
 
  orbs:
   win: circleci/windows@2.2.0
+  azure-acr: circleci/azure-acr@0.2.0
 
  jobs:
    build:
@@ -12,3 +13,10 @@
        - run: dotnet restore ./aspnet-core/AutomaticAcceptanceTest.sln
        - run: dotnet build ./aspnet-core/AutomaticAcceptanceTest.sln
        - run: dotnet test ./aspnet-core/AutomaticAcceptanceTest.sln
+
+       - setup_remote_docker:
+           docker_layer_caching: false
+           version: 19.03.13
+       - run: echo "$ACR_PW" | docker login cicdprototyperegistry.azurecr.io --username cicdprototyperegistry --password-stdin
+       - run: docker build aspnet-core -t cicdprototyperegistry.azurecr.io/cicdprototyperegistry/cicdprototype:$CIRCLE_BUILD_NUM
+       - run: docker push cicdprototyperegistry.azurecr.io/cicdprototyperegistry/cicdprototype:$CIRCLE_BUILD_NUM
