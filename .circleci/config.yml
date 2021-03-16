@@ -13,6 +13,6 @@
        - run: dotnet build ./aspnet-core/AutomaticAcceptanceTest.sln
        - run: dotnet test ./aspnet-core/AutomaticAcceptanceTest.sln
 
-       - run: echo $ACR_PW | winpty docker login cicdprototyperegistry.azurecr.io --username cicdprototyperegistry --password-stdin
+       - run: winpty echo $ACR_PW | docker login cicdprototyperegistry.azurecr.io --username cicdprototyperegistry --password-stdin
        - run: docker build aspnet-core -t cicdprototyperegistry.azurecr.io/cicdprototyperegistry/cicdprototype:$CIRCLE_BUILD_NUM
        - run: docker push cicdprototyperegistry.azurecr.io/cicdprototyperegistry/cicdprototype:$CIRCLE_BUILD_NUM
