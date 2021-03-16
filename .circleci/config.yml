@@ -6,12 +6,14 @@
  jobs:
    build:
      executor: win/default 
-    
+     environment:
+       ACR_PW: $ACR_PW
+
      steps:
        - checkout
-       - run: dotnet restore ./aspnet-core/AutomaticAcceptanceTest.sln
-       - run: dotnet build ./aspnet-core/AutomaticAcceptanceTest.sln
-       - run: dotnet test ./aspnet-core/AutomaticAcceptanceTest.sln
+      #  - run: dotnet restore ./aspnet-core/AutomaticAcceptanceTest.sln
+      #  - run: dotnet build ./aspnet-core/AutomaticAcceptanceTest.sln
+      #  - run: dotnet test ./aspnet-core/AutomaticAcceptanceTest.sln
 
        - run: docker login cicdprototyperegistry.azurecr.io --username cicdprototyperegistry --password $ACR_PW
        - run: docker build aspnet-core -t cicdprototyperegistry.azurecr.io/cicdprototyperegistry/cicdprototype:$CIRCLE_BUILD_NUM
