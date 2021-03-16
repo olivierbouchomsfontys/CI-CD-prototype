@@ -6,10 +6,9 @@
  jobs:
    build:
      executor: win/default 
-     working_directory: ~/project/aspnet-core    
     
      steps:
        - checkout
        - run: dotnet restore
-       - run: dotnet build
-       - run: dotnet test
+       - run: dotnet build ./aspnet-core/AutomaticAcceptanceTest.sln
+       - run: dotnet test ./aspnet-core/AutomaticAcceptanceTest.sln
