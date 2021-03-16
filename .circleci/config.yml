@@ -9,7 +9,7 @@
        name: win/default 
        shell: bash.exe
      environment:
-       ACR_PW: $ACR_PW
+       ACR_PW: "$ACR_PW"
 
      steps:
        - checkout
